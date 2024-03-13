@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
+    <title>Course Recommender</title>
+</head>
+<body>
+    <div id="background">
+        <form action="/analyze" method="POST" id="content">
+            <h3>COURSE RECOMMENDER</h3>
+            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </h6>
+            <div id="inputs">
+                <div id="first_row">
+                    <label for="">1ST CHOICE</label>
+                    <select required id="choice_1" name="choice_1">
+                        <option value="" disabled selected>Select:</option>
+                        <option value="option1">BAT</option>
+                        <option value="option2">BSBA</option>
+                        <option value="option3">BSCS</option>
+                        <option value="option3">BSHM</option>
+                        <option value="option3">CTE</option>
+                    </select>
+                    <label for="">2ND CHOICE</label>
+                    <select required id="choice_2" name="choice_2">
+                        <option value="" disabled selected>Select:</option>
+                        <option value="option1">BAT</option>
+                        <option value="option2">BSBA</option>
+                        <option value="option3">BSCS</option>
+                        <option value="option3">BSHM</option>
+                        <option value="option3">CTE</option>
+                    </select>
+                    <label for="">ENGLISH</label>
+                    <input required type="number" name="english" placeholder="Enter English score:">
+                    <label for="">MATH</label>
+                    <input required type="number" name="math" placeholder="Enter Math score:">
+                </div>
+                <div id="second_row">
+                    <label for="">SCIENCE</label>
+                    <input required type="number" name="science" placeholder="Enter Science score:">
+                    <label for="">ABSTRACT REASONING</label>
+                    <input required type="number" name="abstract_reasoning" placeholder="Enter Math score:">
+                    <h5 id="result_header">RESULT</h5>
+                    <h5 id="total">Total: {{ total }}</h5>
+                    <h5 id="course_header">Recommended Course:</h5>
+                    <h5 id="course_result">{{ prediction }}</h5>
+                </div>
+            </div>
+            <button type="submit" id="analyze_btn">ANALYZE INPUTS</button>
+        </form>
+    </div>
+</body>
+</html>
